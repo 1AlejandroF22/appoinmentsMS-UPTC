@@ -8,8 +8,8 @@ const app = express();
 import cors from 'cors';
 
 
-app.use(express.json(), cors);
-const PORT = process.env.PORT
+app.use(express.json(), cors());
+const PORT = process.env.PORT || 3000;
 
 
 const options = {
@@ -22,7 +22,7 @@ const options = {
         },
         servers: [
             {
-                url: `http://localhost:${PORT}`, 
+                url: `http://app-env.eba-4pxx6mrt.us-east-1.elasticbeanstalk.com/`, 
             },
         ],
     },

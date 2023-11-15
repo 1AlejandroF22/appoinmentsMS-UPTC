@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model appointments {
+  id_appointment Int                 @id @default(autoincrement())
+  start_time     String            @db.VarChar(150)
+  status         appointments_status
+  notes          String              @db.VarChar(150)
+  price_cop      Int
+  end_time       String            @db.VarChar(150)
+  id_user        Int
+  id_doctor      Int
+}
+
+enum appointments_status {
+  Pagada
+  Deuda
+}
